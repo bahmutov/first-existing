@@ -1,0 +1,28 @@
+{
+  "name": "first-existing",
+  "version": "1.0.0",
+  "description": "Finds the first existing file from a list of choices",
+  "main": "first-existing.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bahmutov/first-existing.git"
+  },
+  "keywords": [
+    "file",
+    "disk",
+    "exist",
+    "exists",
+    "check",
+    "find",
+    "first"
+  ],
+  "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bahmutov/first-existing/issues"
+  },
+  "homepage": "https://github.com/bahmutov/first-existing#readme"
+}
