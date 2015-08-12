@@ -4,7 +4,7 @@
   "description": "Finds the first existing file from a list of choices",
   "main": "first-existing.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha -R spec test/*-spec.js"
   },
   "repository": {
     "type": "git",
@@ -24,5 +24,13 @@
   "bugs": {
     "url": "https://github.com/bahmutov/first-existing/issues"
   },
-  "homepage": "https://github.com/bahmutov/first-existing#readme"
+  "homepage": "https://github.com/bahmutov/first-existing#readme",
+  "devDependencies": {
+    "check-more-types": "1.8.2",
+    "lazy-ass": "0.5.8",
+    "mocha": "2.2.5",
+    "pre-git": "0.6.2"
+  },
+  "pre-commit": "npm test",
+  "post-commit": "npm version"
 }
