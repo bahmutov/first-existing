@@ -8,15 +8,29 @@
 [![dependencies][first-existing-dependencies-image] ][first-existing-dependencies-url]
 [![devdependencies][first-existing-devdependencies-image] ][first-existing-devdependencies-url]
 
+## Install
+
 Install and use under Node: `npm install first-existing --save`
+
+## Use
+
+Find first file from the source folder
 
 ```js
 var firstExisting = require('first-existing');
-var foundFilename = firstExisting('foo.js', 'bar.js', 'baz.js');
-// or if you have an array of filenames already
-var filenames = ['foo.js', 'bar.js', 'baz.js'];
-var foundFilename = firstExisting.apply(null, filenames);
+var choices = ['foo.js', 'bar.js', 'baz.js'];
+var foundFilename = firstExisting(__dirname, choices);
 ```
+
+Find first file from the current working folder
+
+```js
+var firstExisting = require('first-existing');
+var choices = ['foo.js', 'bar.js', 'baz.js'];
+var foundFilename = firstExisting(process.cwd(), choices);
+```
+
+Always returns full path to the found file.
 
 ### Small print
 
@@ -58,11 +72,11 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
 
-[first-existing-icon]: https://nodei.co/npm/first-existing.png?downloads=true
+[first-existing-icon]: https://nodei.co/npm/first-existing.svg?downloads=true
 [first-existing-url]: https://npmjs.org/package/first-existing
-[first-existing-ci-image]: https://travis-ci.org/bahmutov/first-existing.png?branch=master
+[first-existing-ci-image]: https://travis-ci.org/bahmutov/first-existing.svg?branch=master
 [first-existing-ci-url]: https://travis-ci.org/bahmutov/first-existing
-[first-existing-dependencies-image]: https://david-dm.org/bahmutov/first-existing.png
+[first-existing-dependencies-image]: https://david-dm.org/bahmutov/first-existing.svg
 [first-existing-dependencies-url]: https://david-dm.org/bahmutov/first-existing
-[first-existing-devdependencies-image]: https://david-dm.org/bahmutov/first-existing/dev-status.png
+[first-existing-devdependencies-image]: https://david-dm.org/bahmutov/first-existing/dev-status.svg
 [first-existing-devdependencies-url]: https://david-dm.org/bahmutov/first-existing#info=devDependencies

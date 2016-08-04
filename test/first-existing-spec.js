@@ -1,5 +1,7 @@
-require('lazy-ass');
-var check = require('check-more-types');
+'use strict';
+
+var la = require('lazy-ass');
+var is = require('check-more-types');
 
 describe('first existing', function () {
   var first;
@@ -8,33 +10,32 @@ describe('first existing', function () {
   });
 
   it('is a function', function () {
-    la(check.fn(first));
+    la(is.fn(first));
   });
 
   it('finds foo.txt first', function () {
     var fullFoo = __dirname + '/foo.txt';
-    var found = first(fullFoo);
+    var found = first(__dirname, fullFoo);
+    la(found === fullFoo, 'found', found);
+  });
+
+  it('finds foo.txt using relative path', function () {
+    var found = first(__dirname, 'foo.txt');
+    var fullFoo = __dirname + '/foo.txt';
     la(found === fullFoo, 'found', found);
   });
 
   it('finds foo.txt second', function () {
     var no = __dirname + '/does-not-exist.txt';
     var fullFoo = __dirname + '/foo.txt';
-    var found = first(no, fullFoo);
+    var found = first(__dirname, [no, fullFoo]);
     la(found === fullFoo, 'found', found);
   });
 
   it('finds foo.txt not bar', function () {
     var fullFoo = __dirname + '/foo.txt';
     var fullBar = __dirname + '/bar.txt';
-    var found = first(fullFoo, fullBar);
-    la(found === fullFoo, 'found', found);
-  });
-
-  it('can be applied', function () {
-    var fullFoo = __dirname + '/foo.txt';
-    var fullBar = __dirname + '/bar.txt';
-    var found = first.apply(null, [fullFoo, fullBar]);
+    var found = first(__dirname, [fullFoo, fullBar]);
     la(found === fullFoo, 'found', found);
   });
 });
