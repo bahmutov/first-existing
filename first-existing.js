@@ -5,8 +5,20 @@ var is = require('check-more-types');
 var path = require('path');
 var exists = require('fs').existsSync;
 
-function firstExisting(folder, filenames) {
+function isRoot(folder) {
+  return folder === '/';
+}
+
+function parentFolder(folder) {
+  return path.normalize(path.join(folder, '..'))
+}
+
+function firstExisting(folder, filenames, walkUp) {
   la(is.unemptyString(folder), 'missing folder', folder);
+  if (isRoot(folder)) {
+    return;
+  }
+
   if (is.string(filenames)) {
     filenames = [filenames];
   }
@@ -22,6 +34,11 @@ function firstExisting(folder, filenames) {
       return true;
     }
   });
+
+  if (!found && walkUp) {
+    return firstExisting(parentFolder(folder), filenames, walkUp);
+  }
+
   return found;
 }
 

@@ -11,12 +11,17 @@
 
 Install and use under Node: `npm install first-existing --save`
 
+Import the module
+
+```js
+var firstExisting = require('first-existing');
+```
+
 ## Use
 
 Find first file from the source folder
 
 ```js
-var firstExisting = require('first-existing');
 var choices = ['foo.js', 'bar.js', 'baz.js'];
 var foundFilename = firstExisting(__dirname, choices);
 ```
@@ -24,12 +29,27 @@ var foundFilename = firstExisting(__dirname, choices);
 Find first file from the current working folder
 
 ```js
-var firstExisting = require('first-existing');
 var choices = ['foo.js', 'bar.js', 'baz.js'];
 var foundFilename = firstExisting(process.cwd(), choices);
 ```
 
+You can pass just a single filename, instead of a list
+```js
+var foundFilename = firstExisting(__dirname, 'foo.txt');
+```
+
 Always returns full path to the found file.
+
+### Walking up the folder
+
+You can pass a flag to the function to keep walking the folder tree up to
+the root until the file is found. For example,
+
+```js
+var found = firstExisting(__dirname, ['foo.txt', 'bar.txt'], true);
+// finds first existing file from the candidates
+// in __dirname, its parent, etc.
+```
 
 ### Small print
 

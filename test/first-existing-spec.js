@@ -2,6 +2,7 @@
 
 var la = require('lazy-ass');
 var is = require('check-more-types');
+var join = require('path').join;
 
 describe('first existing', function () {
   var first;
@@ -37,5 +38,23 @@ describe('first existing', function () {
     var fullBar = __dirname + '/bar.txt';
     var found = first(__dirname, [fullFoo, fullBar]);
     la(found === fullFoo, 'found', found);
+  });
+
+  it('finds foo.txt up from the given folder', function () {
+    var foo = 'foo.txt';
+    var fullFoo = join(__dirname, foo);
+    var folder = join(__dirname, 'sub');
+    var walkUp = true;
+    var found = first(folder, ['foo.txt'], walkUp);
+    la(found, 'found file', found);
+    la(found === fullFoo, 'found correct file', found);
+  });
+
+  it('checks all the folders to the root', function () {
+    var filename = 'does-not-exist.txt';
+    var folder = join(__dirname, 'sub');
+    var walkUp = true;
+    var found = first(folder, filename, walkUp);
+    la(!found, 'should not have found', found);
   });
 });
