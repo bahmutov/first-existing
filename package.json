@@ -1,16 +1,21 @@
 {
   "name": "first-existing",
-  "version": "2.0.0",
   "description": "Finds the first existing file from a list of choices",
+  "version": "0.0.0-semantic-release",
   "main": "first-existing.js",
   "scripts": {
     "test": "mocha -R spec test/*-spec.js",
-    "commit": "commit-wizard"
+    "commit": "commit-wizard",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "size": "t=\"$(npm pack .)\"; wc -c \"${t}\"; tar tvf \"${t}\"; rm \"${t}\";"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bahmutov/first-existing.git"
+    "url": "https://github.com/bahmutov/first-existing.git"
   },
+  "files": [
+    "first-existing.js"
+  ],
   "keywords": [
     "file",
     "disk",
@@ -30,7 +35,8 @@
     "check-more-types": "2.22.0",
     "lazy-ass": "1.5.0",
     "mocha": "3.0.1",
-    "pre-git": "3.10.0"
+    "pre-git": "3.10.0",
+    "semantic-release": "^4.3.5"
   },
   "config": {
     "pre-git": {

@@ -5,8 +5,7 @@
 [![NPM][first-existing-icon] ][first-existing-url]
 
 [![Build status][first-existing-ci-image] ][first-existing-ci-url]
-[![dependencies][first-existing-dependencies-image] ][first-existing-dependencies-url]
-[![devdependencies][first-existing-devdependencies-image] ][first-existing-devdependencies-url]
+[![semantic-release][semantic-image] ][semantic-url]
 
 ## Install
 
@@ -76,7 +75,5 @@ OTHER DEALINGS IN THE SOFTWARE.
 [first-existing-url]: https://npmjs.org/package/first-existing
 [first-existing-ci-image]: https://travis-ci.org/bahmutov/first-existing.svg?branch=master
 [first-existing-ci-url]: https://travis-ci.org/bahmutov/first-existing
-[first-existing-dependencies-image]: https://david-dm.org/bahmutov/first-existing.svg
-[first-existing-dependencies-url]: https://david-dm.org/bahmutov/first-existing
-[first-existing-devdependencies-image]: https://david-dm.org/bahmutov/first-existing/dev-status.svg
-[first-existing-devdependencies-url]: https://david-dm.org/bahmutov/first-existing#info=devDependencies
+[semantic-image]: https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg
+[semantic-url]: https://github.com/semantic-release/semantic-release
